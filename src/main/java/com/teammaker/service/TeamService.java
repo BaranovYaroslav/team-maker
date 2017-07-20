@@ -13,5 +13,9 @@ public interface TeamService {
 
     public Team saveTeam(Team team);
 
-    public List<Team> findAll();
+    public void deleteTeam(Team team);
+
+    public Team findTeam(long id);
+
+    public List<Team> findAllTeams();
 }

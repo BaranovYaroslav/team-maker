@@ -1,15 +1,15 @@
 package com.teammaker.model.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.google.common.base.Objects;
+
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by Ярослав on 20.07.2017.
  */
 @Entity
+@Table(name = "team")
 public class Team {
 
     @Id
@@ -34,5 +34,15 @@ public class Team {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return Objects.equal(this, obj);
     }
 }

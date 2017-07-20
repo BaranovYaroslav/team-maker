@@ -15,7 +15,6 @@ import java.util.List;
  */
 @Service
 public class TeamServiceImpl implements TeamService {
-
     @Autowired
     TeamRepository teamRepository;
 
@@ -25,8 +24,17 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public List<Team> findAll() {
-        System.out.println(213124124);
+    public void deleteTeam(Team team) {
+        teamRepository.delete(team);
+    }
+
+    @Override
+    public Team findTeam(long id) {
+        return teamRepository.findOne(id);
+    }
+
+    @Override
+    public List<Team> findAllTeams() {
         return Lists.newArrayList(teamRepository.findAll());
     }
 }
