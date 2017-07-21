@@ -17,4 +17,6 @@ public interface DeveloperService {
     public Developer findDeveloperWithTeams(long id);
 
     public List<Developer> findAllDevelopers();
+
+    public Long getDevelopersCount();
 }

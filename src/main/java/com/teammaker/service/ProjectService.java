@@ -15,4 +15,6 @@ public interface ProjectService {
     public Project findProject(long id);
 
     public List<Project> findAllProjects();
+
+    public Long getProjectsCount();
 }

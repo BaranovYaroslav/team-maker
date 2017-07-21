@@ -21,4 +21,5 @@ public interface TeamService {
 
     public List<Team> findAllTeamsWithInitialization();
 
+    public Long getTeamsCount();
 }

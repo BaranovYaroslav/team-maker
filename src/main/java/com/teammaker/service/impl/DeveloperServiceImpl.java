@@ -46,6 +46,11 @@ public class DeveloperServiceImpl implements DeveloperService {
         return Lists.newArrayList(developerRepository.findAll());
     }
 
+    @Override
+    public Long getDevelopersCount() {
+        return developerRepository.count();
+    }
+
     private Developer initializeTeams(Developer developer) {
         Hibernate.initialize(developer.getTeams());
         return developer;

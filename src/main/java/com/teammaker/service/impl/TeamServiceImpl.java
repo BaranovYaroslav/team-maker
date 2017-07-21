@@ -51,6 +51,11 @@ public class TeamServiceImpl implements TeamService {
         return initialize(findAllTeams());
     }
 
+    @Override
+    public Long getTeamsCount() {
+        return teamRepository.count();
+    }
+
     public Team initialize(Team team) {
         Hibernate.initialize(team.getParticipants());
         Hibernate.initialize(team.getProjects());

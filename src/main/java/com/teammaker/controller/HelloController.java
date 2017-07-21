@@ -30,5 +30,6 @@ public class HelloController {
 	}
 
 	public void foo() {
+		System.out.println(projectService.findProject(1).getTechnologies());
 	}
 }

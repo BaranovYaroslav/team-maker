@@ -1,6 +1,7 @@
 package com.teammaker.model.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Ярослав on 20.07.2017.
@@ -18,6 +19,12 @@ public class Project {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id")
     private Team team;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "technology_project",
+            joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "technology_id",referencedColumnName = "id"))
+    private List<Technology> technologies;
 
     public long getId() {
         return id;
@@ -49,6 +56,14 @@ public class Project {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public List<Technology> getTechnologies() {
+        return technologies;
+    }
+
+    public void setTechnologies(List<Technology> technologies) {
+        this.technologies = technologies;
     }
 
     @Override

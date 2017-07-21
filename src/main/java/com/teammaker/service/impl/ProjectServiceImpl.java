@@ -38,4 +38,9 @@ public class ProjectServiceImpl implements ProjectService {
     public List<Project> findAllProjects() {
         return Lists.newArrayList(projectRepository.findAll());
     }
+
+    @Override
+    public Long getProjectsCount() {
+        return projectRepository.count();
+    }
 }
