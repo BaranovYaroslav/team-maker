@@ -1,8 +1,7 @@
 package com.teammaker.service;
 
 import com.teammaker.model.entities.Team;
-import com.teammaker.model.repository.TeamRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.teammaker.model.entities.Developer;
 
 import java.util.List;
 

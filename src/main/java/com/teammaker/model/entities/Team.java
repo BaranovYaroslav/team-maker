@@ -18,6 +18,12 @@ public class Team {
 
     private String name;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_team",
+               joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"))
+    private List<Developer> participants;
+
     public Team() {}
 
     public long getId() {
@@ -36,13 +42,30 @@ public class Team {
         this.name = name;
     }
 
+    public List<Developer> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<Developer> participants) {
+        this.participants = participants;
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hashCode(this);
+        return Objects.hashCode(id, name);
     }
 
     @Override
     public boolean equals(Object obj) {
         return Objects.equal(this, obj);
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", participants=" + participants +
+                '}';
     }
 }
