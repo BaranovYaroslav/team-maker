@@ -18,11 +18,14 @@ public class Team {
 
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "user_team",
                joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"))
     private List<Developer> participants;
+
+    @OneToMany(mappedBy = "team")
+    private List<Project> projects;
 
     public Team() {}
 
@@ -50,6 +53,14 @@ public class Team {
         this.participants = participants;
     }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hashCode(id, name);
@@ -63,9 +74,8 @@ public class Team {
     @Override
     public String toString() {
         return "Team{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", participants=" + participants +
+                "name='" + name + '\'' +
+                ", id=" + id +
                 '}';
     }
 }

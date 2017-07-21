@@ -40,4 +40,28 @@ public class TeamServiceImpl implements TeamService {
     public List<Team> findAllTeams() {
         return Lists.newArrayList(teamRepository.findAll());
     }
+
+    @Override
+    public Team findTeamWithInitialization(long id) {
+        return initialize(findTeam(id));
+    }
+
+    @Override
+    public List<Team> findAllTeamsWithInitialization() {
+        return initialize(findAllTeams());
+    }
+
+    public Team initialize(Team team) {
+        Hibernate.initialize(team.getParticipants());
+        Hibernate.initialize(team.getProjects());
+        return team;
+    }
+
+    public List<Team> initialize(List<Team> teams) {
+        teams.forEach(t -> {
+            Hibernate.initialize(t.getParticipants());
+            Hibernate.initialize(t.getProjects());
+        });
+        return teams;
+    }
 }

@@ -1,6 +1,7 @@
 package com.teammaker.controller;
 
 import com.teammaker.service.DeveloperService;
+import com.teammaker.service.ProjectService;
 import com.teammaker.service.impl.DeveloperServiceImpl;
 import com.teammaker.service.impl.TeamServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class HelloController {
 	@Autowired
 	DeveloperServiceImpl developerService;
 
+	@Autowired
+	ProjectService projectService;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", "Hello world!");
@@ -26,6 +30,5 @@ public class HelloController {
 	}
 
 	public void foo() {
-		System.out.println(developerService.findDeveloperWithTeams(1).getTeams());
 	}
 }

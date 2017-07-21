@@ -8,7 +8,6 @@ import java.util.List;
  * Created by Ярослав on 20.07.2017.
  */
 public interface DeveloperService {
-
     public Developer saveDeveloper(Developer developer);
 
     public void deleteDeveloper(Developer developer);
