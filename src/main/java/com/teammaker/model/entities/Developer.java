@@ -23,8 +23,8 @@ public class Developer {
     @Column(name = "password")
     private String passwordHash;
 
-    @ManyToMany(mappedBy = "participants")
-    private List<Team> teams;
+    @ManyToMany(mappedBy = "developers")
+    private List<Project> projects;
 
     public Developer() {}
 
@@ -60,12 +60,12 @@ public class Developer {
         this.passwordHash = passwordHash;
     }
 
-    public List<Team> getTeams() {
-        return teams;
+    public List<Project> getProjects() {
+        return projects;
     }
 
-    public void setTeams(List<Team> teams) {
-        this.teams = teams;
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 
     @Override

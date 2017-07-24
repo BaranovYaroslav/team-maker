@@ -16,9 +16,12 @@ public class Project {
 
     private String description;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "team_id")
-    private Team team;
+    @ManyToMany
+    @JoinTable(name = "developer_project",
+            joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "developer_id",referencedColumnName = "id"))
+    private List<Technology> developers;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "technology_project",
@@ -50,20 +53,20 @@ public class Project {
         this.description = description;
     }
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
     public List<Technology> getTechnologies() {
         return technologies;
     }
 
     public void setTechnologies(List<Technology> technologies) {
         this.technologies = technologies;
+    }
+
+    public List<Technology> getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(List<Technology> developers) {
+        this.developers = developers;
     }
 
     @Override

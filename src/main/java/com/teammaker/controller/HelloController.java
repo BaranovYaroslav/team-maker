@@ -3,7 +3,6 @@ package com.teammaker.controller;
 import com.teammaker.service.DeveloperService;
 import com.teammaker.service.ProjectService;
 import com.teammaker.service.impl.DeveloperServiceImpl;
-import com.teammaker.service.impl.TeamServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,10 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/")
 public class HelloController {
-
-	@Autowired
-	TeamServiceImpl teamService;
-
 	@Autowired
 	DeveloperServiceImpl developerService;
 

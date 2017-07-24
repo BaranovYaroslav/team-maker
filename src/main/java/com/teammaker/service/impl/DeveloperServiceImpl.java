@@ -52,7 +52,7 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     private Developer initializeTeams(Developer developer) {
-        Hibernate.initialize(developer.getTeams());
+        Hibernate.initialize(developer.getProjects());
         return developer;
     }
 }
