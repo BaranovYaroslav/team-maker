@@ -30,6 +30,14 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public void deleteProject(long id) {
+        Project project = findProject(id);
+        if(project != null) {
+            deleteProject(project);
+        }
+    }
+
+    @Override
     public Project findProject(long id) {
         return projectRepository.findOne(id);
     }

@@ -12,6 +12,8 @@ public interface ProjectService {
 
     public void deleteProject(Project project);
 
+    public void deleteProject(long id);
+
     public Project findProject(long id);
 
     public List<Project> findAllProjects();

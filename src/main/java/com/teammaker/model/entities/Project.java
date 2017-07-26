@@ -1,5 +1,7 @@
 package com.teammaker.model.entities;
 
+import com.teammaker.controller.dto.ProjectDto;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -67,6 +69,13 @@ public class Project {
 
     public void setDevelopers(List<Technology> developers) {
         this.developers = developers;
+    }
+
+    public static Project of(ProjectDto projectDto) {
+        Project project = new Project();
+        project.setName(projectDto.getName());
+        project.setDescription(projectDto.getDescription());
+        return project;
     }
 
     @Override
