@@ -21,14 +21,14 @@ public class Project {
     @ManyToMany
     @JoinTable(name = "developer_project",
             joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "developer_id",referencedColumnName = "id"))
+            inverseJoinColumns = @JoinColumn(name = "developer_id", referencedColumnName = "id"))
     private List<Technology> developers;
 
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "technology_project",
             joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "technology_id",referencedColumnName = "id"))
+            inverseJoinColumns = @JoinColumn(name = "technology_id", referencedColumnName = "id"))
     private List<Technology> technologies;
 
     public long getId() {

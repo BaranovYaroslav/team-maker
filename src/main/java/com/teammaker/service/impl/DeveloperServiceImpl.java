@@ -32,6 +32,11 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
+    public void deleteDeveloper(long id) {
+        deleteDeveloper(findDeveloper(id));
+    }
+
+    @Override
     public Developer findDeveloper(long id) {
         return developerRepository.findOne(id);
     }

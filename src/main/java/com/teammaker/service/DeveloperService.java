@@ -12,6 +12,8 @@ public interface DeveloperService {
 
     public void deleteDeveloper(Developer developer);
 
+    public void deleteDeveloper(long id);
+
     public Developer findDeveloper(long id);
 
     public Developer findDeveloperWithTeams(long id);

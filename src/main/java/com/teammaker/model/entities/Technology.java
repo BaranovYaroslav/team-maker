@@ -1,5 +1,7 @@
 package com.teammaker.model.entities;
 
+import com.teammaker.controller.dto.TechnologyDto;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +32,12 @@ public class Technology {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static Technology of(TechnologyDto technologyDto) {
+        Technology technology = new Technology();
+        technology.setName(technologyDto.getName());
+        return technology;
     }
 
     @Override

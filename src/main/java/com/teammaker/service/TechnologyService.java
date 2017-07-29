@@ -12,6 +12,8 @@ public interface TechnologyService {
 
     public void deleteTechnology(Technology technology);
 
+    public void deleteTechnology(long id);
+
     public  Technology findTechnology(long id);
 
     public List< Technology> findAllTechnologies();

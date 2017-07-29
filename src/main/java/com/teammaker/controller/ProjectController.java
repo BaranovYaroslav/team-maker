@@ -4,16 +4,10 @@ import com.teammaker.controller.dto.ProjectDto;
 import com.teammaker.model.entities.Project;
 import com.teammaker.service.impl.ProjectServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.validation.Valid;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.*;
@@ -58,5 +52,4 @@ public class ProjectController {
         projectService.findAllProjects().forEach(p -> projects.add(ProjectDto.of(p)));
         return projects;
     }
-
 }

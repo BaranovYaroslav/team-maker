@@ -30,6 +30,11 @@ public class TechnologyServiceImpl implements TechnologyService {
     }
 
     @Override
+    public void deleteTechnology(long id) {
+        deleteTechnology(findTechnology(id));
+    }
+
+    @Override
     public Technology findTechnology(long id) {
         return technologyRepository.findOne(id);
     }

@@ -9,7 +9,6 @@ import java.util.List;
  * Created by Ярослав on 20.07.2017.
  */
 @Entity
-@Table(name = "user")
 public class Developer {
 
     @Id
