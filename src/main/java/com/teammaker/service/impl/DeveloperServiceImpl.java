@@ -42,9 +42,10 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
-    public Developer findDeveloperWithTeams(long id) {
-        return initializeTeams(findDeveloper(id));
+    public Developer findDeveloperWithProjects(long id) {
+        return initializeProjects(findDeveloper(id));
     }
+
 
     @Override
     public List<Developer> findAllDevelopers() {
@@ -52,11 +53,18 @@ public class DeveloperServiceImpl implements DeveloperService {
     }
 
     @Override
+    public List<Developer> findAllDevelopersWithProjects() {
+        List<Developer> developers = findAllDevelopers();
+        developers.forEach(this::initializeProjects);
+        return developers;
+    }
+
+    @Override
     public Long getDevelopersCount() {
         return developerRepository.count();
     }
 
-    private Developer initializeTeams(Developer developer) {
+    private Developer initializeProjects(Developer developer) {
         Hibernate.initialize(developer.getProjects());
         return developer;
     }

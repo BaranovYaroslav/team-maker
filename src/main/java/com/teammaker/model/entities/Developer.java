@@ -1,6 +1,7 @@
 package com.teammaker.model.entities;
 
 import com.google.common.base.Objects;
+import com.teammaker.controller.dto.DeveloperDto;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,7 +21,7 @@ public class Developer {
     private String email;
 
     @Column(name = "password")
-    private String passwordHash;
+    private String password;
 
     @ManyToMany(mappedBy = "developers")
     private List<Project> projects;
@@ -51,12 +52,12 @@ public class Developer {
         this.email = email;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Project> getProjects() {
@@ -67,9 +68,17 @@ public class Developer {
         this.projects = projects;
     }
 
+    public static Developer of(DeveloperDto developerDto) {
+        Developer developer = new Developer();
+        developer.setLogin(developerDto.getLogin());
+        developer.setEmail(developerDto.getEmail());
+        developer.setPassword(developerDto.getPassword());
+        return developer;
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, email, login, passwordHash);
+        return Objects.hashCode(id, email, login, password);
     }
 
     @Override
@@ -80,7 +89,7 @@ public class Developer {
     @Override
     public String toString() {
         return "Developer{" +
-                "passwordHash='" + passwordHash + '\'' +
+                "password='" + password + '\'' +
                 ", id=" + id +
                 ", login='" + login + '\'' +
                 ", email='" + email + '\'' +
